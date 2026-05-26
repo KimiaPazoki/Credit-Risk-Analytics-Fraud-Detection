@@ -103,3 +103,9 @@ Completed
 
 ### Customer Overview
 ![Customer Overview](screenshots/customer-overview-dashboard.png)
+
+## Repository Structure
+
+- `screenshots/` — Dashboard page previews
+- `sql/` — Data cleaning, validation, and schema checks
+- `dax/` — Power BI DAX measures used for KPI calculations
