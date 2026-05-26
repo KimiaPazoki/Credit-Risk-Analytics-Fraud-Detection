@@ -1,9 +1,21 @@
-# Credit Risk & Fraud Detection Analytics
+# Credit Risk Analytics & Fraud Detection
 
 ## Project Overview
-This end-to-end analytics project was designed to support executive-level decision-making in credit risk monitoring, fraud detection, customer analytics, and portfolio performance management.
 
-The solution integrates Power BI, SQL, Python, and data modeling techniques to transform raw financial and transactional data into interactive business intelligence dashboards.
+This end-to-end business analytics project was designed to support executive-level decision-making in credit risk monitoring, fraud detection, customer analytics, and portfolio performance management.
+
+The solution integrates Power BI, SQL, and DAX to transform raw financial and transactional data into interactive business intelligence dashboards focused on operational and strategic risk analysis.
+
+---
+
+## Business Objectives
+
+- Monitor loan portfolio performance
+- Identify high-risk customer segments
+- Detect fraudulent transactions and applications
+- Analyze default trends across regions and customer groups
+- Improve executive visibility into portfolio risk exposure
+- Support KPI-driven financial decision-making
 
 ---
 
@@ -28,69 +40,54 @@ Focused on:
 
 ### Fraud Detection
 Focused on:
+- Fraud transaction monitoring
 - Fraudulent loan applications
-- Fraud transaction trends
-- Fraud amount exposure
-- Fraud patterns by region and merchant category
-- Fraud flag reason analysis
+- Fraud trends over time
+- Fraud exposure by region
+- Merchant category fraud analysis
 
 ### Customer Overview
-Provides insights into:
+Focused on:
 - Customer segmentation
-- Default behavior by demographic factors
-- Income and credit score analysis
-- Regional customer risk patterns
-- Loan purpose distribution
+- Credit score distribution
+- Customer default behavior
+- Income and demographic analysis
+- Portfolio customer trends
 
 ---
 
 ## Tools & Technologies
+
 - Power BI
-- SQL
-- Python (Pandas)
-- Advanced Excel
 - DAX
+- SQL
 - Data Modeling
+- Power Query
+- Excel
+
+---
+
+## Repository Structure
+
+- `screenshots/` — Dashboard page previews
+- `sql/` — Data cleaning, validation, and schema checks
+- `dax/` — Power BI DAX measures used for KPI calculations
 
 ---
 
 ## Key Features
+
 - Interactive executive dashboards
-- KPI monitoring and reporting
-- Credit risk segmentation
-- Fraud trend analysis
-- Customer risk profiling
-- Regional performance analysis
-- Business-focused analytical storytelling
+- Star schema data modeling
+- KPI-driven reporting framework
+- Fraud and credit risk analytics
+- Dynamic filtering and drill-down analysis
+- DAX-based financial calculations
+- Business-focused storytelling visuals
 
 ---
 
-## Data Model
-The project follows a dimensional data modeling approach using:
-- Fact tables for applications and transactions
-- Dimension tables for customers, dates, branches, and loan attributes
-- Relationship-based analytical modeling in Power BI
-
----
-
-## Business Value
-This solution helps stakeholders:
-- Monitor portfolio health
-- Identify high-risk customers
-- Detect fraud exposure
-- Track loan performance
-- Support risk-based decision-making
-
----
-
-## Dashboard Preview
-Dashboard screenshots and additional project files will be added soon.
-
----
-
-## Project Status
-Completed
-## Dashboard Preview
+## Screenshots
 
 ### Executive Summary
 ![Executive Summary](screenshots/executive-summary-dashboard.png)
@@ -103,9 +100,3 @@ Completed
 
 ### Customer Overview
 ![Customer Overview](screenshots/customer-overview-dashboard.png)
-
-## Repository Structure
-
-- `screenshots/` — Dashboard page previews
-- `sql/` — Data cleaning, validation, and schema checks
-- `dax/` — Power BI DAX measures used for KPI calculations
