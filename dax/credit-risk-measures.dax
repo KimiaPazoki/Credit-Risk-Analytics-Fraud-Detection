@@ -1,0 +1,40 @@
+-- Credit Risk Measures
+
+-- Total Assessed Loans
+Total Assessed Loans =
+COUNT(risk_labels[ApplicationID])
+
+-- Average Risk Probability
+Average Risk Probability =
+AVERAGE(risk_labels[RiskProb])
+
+-- High Risk Applications
+High Risk Applications =
+CALCULATE(
+    COUNT(risk_labels[ApplicationID]),
+    risk_labels[Tier] = "High Risk"
+)
+
+-- High Risk Exposure
+High Risk Exposure =
+CALCULATE(
+    SUM(applications[LoanAmount]),
+    risk_labels[Tier] = "High Risk"
+)
+
+-- Default History Rate
+Default History Rate =
+DIVIDE(
+    CALCULATE(
+        DISTINCTCOUNT(customers[CustomerID]),
+        customers[HasDefaultedBefore] = 1
+    ),
+    DISTINCTCOUNT(customers[CustomerID])
+)
+
+-- Expected Loss
+Expected Loss =
+SUMX(
+    applications,
+    applications[LoanAmount] * RELATED(risk_labels[RiskProb]) * 0.60
+)
