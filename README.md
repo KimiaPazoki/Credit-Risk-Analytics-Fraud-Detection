@@ -1,4 +1,4 @@
-# Credit Risk Analytics & Fraud Detection
+# Credit Risk & Fraud Detection Analytics
 
 ## Project Overview
 This end-to-end analytics project was designed to support executive-level decision-making in credit risk monitoring, fraud detection, customer analytics, and portfolio performance management.
