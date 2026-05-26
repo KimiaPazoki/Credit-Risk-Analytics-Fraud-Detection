@@ -1,0 +1,58 @@
+-- Executive Summary Measures
+
+-- Total Loan Applications
+Total Loan Applications = 
+COUNT(applications[ApplicationID])
+
+-- Total Approved Loans
+Total Approved Loans = 
+CALCULATE(
+    COUNT(applications[ApplicationID]),
+    applications[Approved] = 1
+)
+
+-- Approval Rate
+Approval Rate = 
+DIVIDE(
+    [Total Approved Loans],
+    [Total Loan Applications]
+)
+
+-- Total Approved Loan Amount
+Total Approved Loan Amount = 
+CALCULATE(
+    SUM(applications[LoanAmount]),
+    applications[Approved] = 1
+)
+
+-- Average Loan Per Customer
+Avg Loan Per Customer = 
+DIVIDE(
+    [Total Approved Loan Amount],
+    DISTINCTCOUNT(applications[CustomerID])
+)
+
+-- Fraudulent Transactions
+Fraudulent Transactions = 
+CALCULATE(
+    COUNT(transactions[TransactionID]),
+    transactions[IsFraud] = 1
+)
+
+-- Fraud Rate
+Fraud Rate = 
+DIVIDE(
+    [Fraudulent Transactions],
+    COUNT(transactions[TransactionID])
+)
+
+-- Average Credit Score
+Avg Credit Score = 
+AVERAGE(customers[CreditScore])
+
+-- High Risk Customers
+High Risk Customers = 
+CALCULATE(
+    DISTINCTCOUNT(risk_labels[CustomerID]),
+    risk_labels[Tier] = "High Risk"
+)
