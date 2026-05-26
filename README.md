@@ -90,3 +90,16 @@ Dashboard screenshots and additional project files will be added soon.
 
 ## Project Status
 Completed
+## Dashboard Preview
+
+### Executive Summary
+![Executive Summary](executive-summary-dashboard.png)
+
+### Credit Risk Analysis
+![Credit Risk Analysis](credit-risk-analysis-dashboard.png)
+
+### Fraud Detection
+![Fraud Detection](fraud-detection-dashboard.png)
+
+### Customer Overview
+![Customer Overview](customer-overview-dashboard.png)
