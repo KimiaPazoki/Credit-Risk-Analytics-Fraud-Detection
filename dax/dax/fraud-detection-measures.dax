@@ -1,0 +1,47 @@
+-- Fraud Detection Measures
+
+-- Total Transactions
+Total Transactions =
+COUNT(transactions[TransactionID])
+
+-- Fraud Transactions
+Fraud Transactions =
+CALCULATE(
+    COUNT(transactions[TransactionID]),
+    transactions[IsFraud] = 1
+)
+
+-- Fraud Rate
+Fraud Rate =
+DIVIDE(
+    [Fraud Transactions],
+    [Total Transactions]
+)
+
+-- Fraud Exposure
+Fraud Exposure =
+CALCULATE(
+    SUM(transactions[Amount]),
+    transactions[IsFraud] = 1
+)
+
+-- Fraud Loan Applications
+Fraud Loan Applications =
+CALCULATE(
+    COUNT(applications[ApplicationID]),
+    applications[IsFraudApp] = 1
+)
+
+-- Fraud Loan Rate
+Fraud Loan Rate =
+DIVIDE(
+    [Fraud Loan Applications],
+    COUNT(applications[ApplicationID])
+)
+
+-- Total Fraud Loan Amount
+Total Fraud Loan Amount =
+CALCULATE(
+    SUM(applications[LoanAmount]),
+    applications[IsFraudApp] = 1
+)
