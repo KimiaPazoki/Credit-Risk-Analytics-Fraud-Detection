@@ -1,31 +1,34 @@
--- Fraud Detection Analysis
+-- Data Validation Checks
+-- Purpose: Validate prepared data before loading into Power BI.
 
-SELECT
-    Region,
+-- 1. Validate transaction fraud flag values
+SELECT DISTINCT IsFraud
+FROM transactions;
 
-    COUNT(TransactionID) AS Total_Transactions,
+-- 2. Validate application fraud flag values
+SELECT DISTINCT IsFraudApp
+FROM applications;
 
-    SUM(CASE 
-        WHEN IsFraud = 1 THEN 1 
-        ELSE 0 
-    END) AS Fraud_Transactions,
+-- 3. Check negative or zero loan amounts
+SELECT *
+FROM applications
+WHERE LoanAmount <= 0;
 
-    ROUND(
-        SUM(CASE WHEN IsFraud = 1 THEN 1 ELSE 0 END) * 100.0
-        / COUNT(TransactionID),
-        2
-    ) AS Fraud_Rate,
-
-    ROUND(
-        SUM(CASE 
-            WHEN IsFraud = 1 THEN Amount 
-            ELSE 0 
-        END),
-        2
-    ) AS Fraud_Exposure
-
+-- 4. Check negative transaction amounts
+SELECT *
 FROM transactions
+WHERE Amount < 0;
 
-GROUP BY Region
+-- 5. Check unmatched customers between applications and customer table
+SELECT a.CustomerID
+FROM applications a
+LEFT JOIN customers c
+ON a.CustomerID = c.CustomerID
+WHERE c.CustomerID IS NULL;
 
-ORDER BY Fraud_Exposure DESC;
+-- 6. Check unmatched customers between transactions and customer table
+SELECT t.CustomerID
+FROM transactions t
+LEFT JOIN customers c
+ON t.CustomerID = c.CustomerID
+WHERE c.CustomerID IS NULL;
